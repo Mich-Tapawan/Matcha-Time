@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+:root {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+.brand-font {
+  font-family: "DM Serif Text", serif;
+}
