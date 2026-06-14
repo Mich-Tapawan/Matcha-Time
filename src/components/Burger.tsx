@@ -3,10 +3,10 @@ type BurgerProps = {
   onClick: () => void;
 };
 
-export default function Burger({ isOpen, onClick }: BurgerProps) {
+export default function Burger({ isOpen: _isOpen, onClick }: BurgerProps) {
   return (
     <div
-      className={`flex flex-col space-y-1 place-self-center cursor-pointer lg:hidden`}
+      className={`flex flex-col space-y-1 place-self-center cursor-pointer xl:hidden`}
       onClick={onClick}
     >
       <span className="w-6 h-0.5 bg-white"></span>

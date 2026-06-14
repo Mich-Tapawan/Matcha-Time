@@ -3,11 +3,11 @@ import { useEffect } from "react";
 
 export function useIsMobile() {
   const [windowSize, setWindowSize] = useState({
-    width: typeof window !== "undefined" ? window.innerWidth : 1200,
+    width: typeof window !== "undefined" ? window.innerWidth : 1280,
     height: typeof window !== "undefined" ? window.innerHeight : 800,
   });
 
-  const isMobile = windowSize.width < 1024;
+  const isMobile = windowSize.width < 1280;
 
   useEffect(() => {
     const handleResize = () => {

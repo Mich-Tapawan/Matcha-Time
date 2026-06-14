@@ -4,12 +4,12 @@ import contactBg from "../assets/contact-bg.jpg";
 export default function Contact() {
   return (
     <div
-      className="w-screen min-h-screen pt-16 grid bg-cover bg-center bg-no-repeat px-4 place-content-center justify-center align-middle gap-12 lg:grid-cols-2 lg:px-20"
+      className="w-screen min-h-screen pt-16 grid bg-cover bg-center bg-no-repeat px-4 place-content-center justify-center align-middle gap-12 lg:px-12 lg:gap-10 xl:grid-cols-2 xl:px-20 2xl:px-32 2xl:gap-16"
       style={{ backgroundImage: `url(${contactBg})` }}
     >
-      <div style={{ color: "white" }} className="space-y-5">
+      <div style={{ color: "white" }} className="space-y-5 max-w-180">
         <h1 className="text-shadow-lg">What can we do?</h1>
-        <p style={{ lineHeight: "2rem" }} className="text-shadow-lg">
+        <p style={{ lineHeight: "2rem" }} className="text-shadow-lg ">
           Whether you have a question about our ceremonial menu, want to know
           more about our sourcing from Uji, or simply want to share your
           teahouse experience, we’d love to hear from you. Drop us a line below,

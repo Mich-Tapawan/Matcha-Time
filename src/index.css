@@ -31,9 +31,25 @@
 
 @media (min-width: 1024px) {
   :root {
+    --font-size-h3: 1.5625rem;
+    --font-size-h2: 2.125rem;
+    --font-size-h1: 2.75rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
     --font-size-h3: 1.625rem;
     --font-size-h2: 2.25rem;
     --font-size-h1: 3rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  :root {
+    --font-size-h3: 1.75rem;
+    --font-size-h2: 2.5rem;
+    --font-size-h1: 3.5rem;
   }
 }
 
