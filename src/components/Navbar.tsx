@@ -29,7 +29,7 @@ export default function Navbar() {
 
       {/* Navbar */}
       <nav className="hidden lg:flex justify-center py-2">
-        <ul className="bg-muted flex space-x-4 px-4 py-2 justify-center flex-col lg:flex-row lg:max-w-2xl lg:px-10 lg:rounded-full">
+        <ul className="bg-primary flex space-x-4 px-4 py-2 justify-center flex-col lg:flex-row lg:max-w-2xl lg:px-10 lg:rounded-full">
           {navLinks.map((link, i) => (
             <li
               key={i}
@@ -47,9 +47,14 @@ export default function Navbar() {
       </nav>
 
       {/* CTA-btn */}
-      {isMobile ? "" : <OrderNowBtn />}
-
-      <Burger isOpen={isMenuOpen} onClick={() => setIsMenuOpen(!isMenuOpen)} />
+      {isMobile ? (
+        <Burger
+          isOpen={isMenuOpen}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        />
+      ) : (
+        <OrderNowBtn />
+      )}
     </header>
   );
 }
