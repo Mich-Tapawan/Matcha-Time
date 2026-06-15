@@ -20,7 +20,7 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="bg-secondary flex flex-col space-y-4 w-full mx-auto p-6 lg:p-8 rounded-xl shadow-2xl xl:max-w-120 2xl:max-w-140"
+      className="bg-secondary flex flex-col space-y-4 w-full p-6 mx-auto lg:p-8 rounded-xl shadow-2xl xl:max-w-120 2xl:max-w-150 2xl:mx-0 2xl:ml-auto"
     >
       <div>
         <label

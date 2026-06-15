@@ -21,7 +21,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky z-50 top-0 flex justify-between align-middle px-6 md:px-20">
+    <header className="sticky z-50 top-0 flex justify-between align-middle px-4 lg:px-10 xl:px-20 2xl:px-32">
       {/* Brand */}
       <div className="flex items-center space-x-2 py-2">
         <p

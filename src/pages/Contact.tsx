@@ -7,7 +7,7 @@ export default function Contact() {
       className="w-screen min-h-screen pt-16 grid bg-cover bg-center bg-no-repeat px-4 place-content-center justify-center align-middle gap-12 lg:px-12 lg:gap-10 xl:grid-cols-2 xl:px-20 2xl:px-32 2xl:gap-16"
       style={{ backgroundImage: `url(${contactBg})` }}
     >
-      <div style={{ color: "white" }} className="space-y-5 max-w-180">
+      <div style={{ color: "white" }} className="space-y-5 max-w-163">
         <h1 className="text-shadow-lg">What can we do?</h1>
         <p style={{ lineHeight: "2rem" }} className="text-shadow-lg ">
           Whether you have a question about our ceremonial menu, want to know
@@ -39,7 +39,9 @@ export default function Contact() {
         </div>
       </div>
 
-      <ContactForm />
+      <div className="w-full">
+        <ContactForm />
+      </div>
     </div>
   );
 }
