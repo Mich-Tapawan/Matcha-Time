@@ -1,5 +1,6 @@
 import ContactForm from "../components/contact/ContactForm";
 import contactBg from "../assets/contact-bg.jpg";
+import { contactInfo } from "../data/contact";
 
 export default function Contact() {
   return (
@@ -33,9 +34,9 @@ export default function Contact() {
           className="grid grid-cols-2 gap-3 text-shadow-lg"
         >
           <p className="font-bold">Get In Touch:</p>
-          <p>555-0199</p>
-          <p>matchatime@gmail.com</p>
-          <p>+1 212-555-0143</p>
+          <p>{contactInfo.phones[0]}</p>
+          <p>{contactInfo.email}</p>
+          <p>{contactInfo.phones[1]}</p>
         </div>
       </div>
 

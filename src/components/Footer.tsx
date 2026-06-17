@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import SocialMediaIcons from "./SocialMediaIcons";
+import { contactInfo } from "../data/contact";
+import { navLinks } from "../data/navigation";
 
 export default function Footer() {
   return (
@@ -15,9 +17,12 @@ export default function Footer() {
         <div className="flex flex-col gap-10">
           <ul className="space-y-2">
             <li className="font-medium">Get in touch</li>
-            <li className="font-extralight">matchatime@gmail.com</li>
-            <li className="font-extralight">555-0199</li>
-            <li className="font-extralight">+1 212-555-0143</li>
+            <li className="font-extralight">{contactInfo.email}</li>
+            {contactInfo.phones.map((phone) => (
+              <li key={phone} className="font-extralight">
+                {phone}
+              </li>
+            ))}
           </ul>
 
           <ul className="space-y-2">
@@ -29,18 +34,11 @@ export default function Footer() {
 
         <ul className="space-y-2">
           <li className="font-medium">Pages</li>
-          <li className="font-extralight">
-            <Link to={"/"}>Home</Link>
-          </li>
-          <li className="font-extralight">
-            <Link to={"/menu"}>Menu</Link>
-          </li>
-          <li className="font-extralight">
-            <Link to={"/about"}>About</Link>
-          </li>
-          <li className="font-extralight">
-            <Link to={"/contact"}>Contact</Link>
-          </li>
+          {navLinks.map((link) => (
+            <li key={link.href} className="font-extralight">
+              <Link to={link.href}>{link.text}</Link>
+            </li>
+          ))}
         </ul>
 
         <div className="flex flex-col space-y-3 items-center xl:items-start">

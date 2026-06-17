@@ -1,29 +1,9 @@
-type OfferImageType = {
-  url: string;
-  text: string;
-};
-
-const imageModules = import.meta.glob(
-  "/src/assets/offer/*.{png,jpg,jpeg,svg,webp}",
-  {
-    eager: true,
-    import: "default",
-  },
-);
-
-const imageURLs = Object.values(imageModules) as string[];
-
-const textCaptions = ["Hewwo", "wazzuppp", "Third Caption", "yeah"];
-
-const images: OfferImageType[] = textCaptions.map((caption, index) => ({
-  url: imageURLs[index] || "",
-  text: caption,
-}));
+import { offerGalleryImages } from "../../data/offerGallery";
 
 export default function ImageGallery() {
   return (
     <div className="grid gap-3 grid-cols-2 xl:grid-cols-4 xl:gap-10">
-      {images.map(({ url, text }, index) => (
+      {offerGalleryImages.map(({ url, text }, index) => (
         <div
           key={index}
           className="relative w-full rounded overflow-hidden group xl:min-h-140 2xl:max-w-90"

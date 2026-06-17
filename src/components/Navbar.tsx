@@ -2,18 +2,7 @@ import { Link } from "react-router-dom";
 import Burger from "./Burger";
 import { useState } from "react";
 import OrderNowBtn from "./OrderNowBtn";
-
-type NavLink = {
-  text: string;
-  href: string;
-};
-
-const navLinks: NavLink[] = [
-  { text: "Home", href: "/" },
-  { text: "Menu", href: "/menu" },
-  { text: "About", href: "/about" },
-  { text: "Contact", href: "/contact" },
-];
+import { navLinks } from "../data/navigation";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
