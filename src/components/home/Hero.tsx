@@ -27,8 +27,8 @@ export default function Hero() {
   }, []);
 
   return (
-    <div
-      className="w-full max-w-full min-h-screen bg-cover bg-center bg-no-repeat text-white place-content-center px-4 lg:px-10 xl:place-content-end xl:px-20 xl:pb-10 2xl:px-32 2xl:pb-16"
+    <section
+      className="w-full max-w-full min-h-200 bg-cover bg-center bg-no-repeat text-white place-content-center px-4 lg:px-10 xl:place-content-end xl:px-20 xl:pb-10 2xl:px-32 2xl:pb-16"
       style={{ backgroundImage: `url(${matchaBg})` }}
     >
       <div className="flex flex-col xl:grid xl:grid-cols-[1fr_auto_1fr] xl:items-center xl:gap-y-2">
@@ -56,6 +56,6 @@ export default function Hero() {
       <div className="mt-10 flex justify-center xl:hidden">
         <OrderNowBtn variant="hero" />
       </div>
-    </div>
+    </section>
   );
 }
