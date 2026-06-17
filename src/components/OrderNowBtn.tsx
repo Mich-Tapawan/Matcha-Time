@@ -1,12 +1,23 @@
-export default function OrderNowBtn() {
+type OrderNowBtnProps = {
+  variant?: "nav" | "hero";
+  className?: string;
+};
+
+const variantStyles = {
+  nav: "h-10 text-sm py-2 px-6",
+  hero: "h-12 text-base py-3 px-10 w-full max-w-xs",
+};
+
+export default function OrderNowBtn({
+  variant = "nav",
+  className = "",
+}: OrderNowBtnProps) {
   return (
     <button
       type="button"
-      className="flex h-10 bg-accent text-sm py-1 px-6 place-content-center place-self-center cursor-pointer hover:brightness-125 transition duration-300"
+      className={`flex bg-accent place-content-center cursor-pointer hover:brightness-125 transition duration-300 ${variantStyles[variant]} ${className}`}
     >
-      <p className="text-center text-black font-medium place-self-center .brand-font">
-        Order Now
-      </p>
+      <p className="text-center text-black font-medium brand-font">Order Now</p>
     </button>
   );
 }

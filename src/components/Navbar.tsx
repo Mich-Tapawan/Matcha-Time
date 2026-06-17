@@ -2,64 +2,63 @@ import { Link } from "react-router-dom";
 import Burger from "./Burger";
 import { useState } from "react";
 import OrderNowBtn from "./OrderNowBtn";
-import { useIsMobile } from "../hooks/useIsMobile";
+
+type NavLink = {
+  text: string;
+  href: string;
+};
+
+const navLinks: NavLink[] = [
+  { text: "Home", href: "/" },
+  { text: "Menu", href: "/menu" },
+  { text: "About", href: "/about" },
+  { text: "Contact", href: "/contact" },
+];
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const isMobile = useIsMobile();
 
-  type NavLink = {
-    text: string;
-    href: string;
-  };
-
-  const navLinks: NavLink[] = [
-    { text: "Home", href: "/" },
-    { text: "Menu", href: "/menu" },
-    { text: "About", href: "/about" },
-    { text: "Contact", href: "/contact" },
-  ];
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="sticky z-50 top-0 flex justify-between align-middle px-4 lg:px-10 xl:px-20 2xl:px-32">
-      {/* Brand */}
-      <div className="flex items-center space-x-2 py-2">
-        <p
-          className="font-bold text-white text-center"
-          style={{ fontSize: "1.2rem" }}
-        >
+    <header className="fixed inset-x-0 top-0 z-50 grid grid-cols-[1fr_1fr] items-center px-4 lg:px-10 xl:grid-cols-[1fr_auto_1fr] xl:px-20 2xl:px-32">
+      <div className="flex items-center py-2">
+        <p className="font-bold text-white" style={{ fontSize: "1.2rem" }}>
           Matcha Time
         </p>
       </div>
 
-      {/* Navbar */}
-      <nav className="hidden xl:flex justify-center py-2">
-        <ul className="bg-primary flex space-x-4 px-4 py-2 justify-center flex-col xl:flex-row xl:max-w-2xl xl:px-10 xl:rounded-full 2xl:px-14 2xl:max-w-3xl">
-          {navLinks.map((link, i) => (
+      <nav
+        className={`${
+          isMenuOpen ? "flex" : "hidden"
+        } xl:flex absolute top-full left-0 right-0 z-40 flex-col items-center gap-4 bg-primary p-6 xl:static xl:flex-row xl:justify-center xl:bg-transparent xl:p-0 xl:py-2`}
+      >
+        <ul className="flex w-full flex-col items-center gap-2 xl:w-auto xl:flex-row xl:gap-0 xl:space-x-4 xl:bg-primary xl:px-10 xl:py-2 xl:rounded-full xl:max-w-2xl 2xl:px-14 2xl:max-w-3xl">
+          {navLinks.map((link) => (
             <li
-              key={i}
-              className="hover:bg-white rounded-full transition duration-300"
+              key={link.href}
+              className="w-full text-center hover:bg-white rounded-full transition duration-300 xl:w-auto"
             >
               <Link
                 to={link.href}
-                className=" text-white text-sm px-4 py-2 hover:text-primary"
+                onClick={closeMenu}
+                className="block text-white text-sm px-4 py-2 hover:text-primary"
               >
                 {link.text}
               </Link>
             </li>
           ))}
         </ul>
+        <OrderNowBtn variant="nav" className="xl:hidden" />
       </nav>
 
-      {/* CTA-btn */}
-      {isMobile ? (
+      <div className="flex justify-end items-center py-2">
         <Burger
           isOpen={isMenuOpen}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          onClick={() => setIsMenuOpen((open) => !open)}
         />
-      ) : (
-        <OrderNowBtn />
-      )}
+        <OrderNowBtn variant="nav" className="hidden xl:flex" />
+      </div>
     </header>
   );
 }

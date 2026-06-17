@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import matchaBg from "../../assets/matcha-bg.png";
 import DualText from "./DualText";
-import { useIsMobile } from "../../hooks/useIsMobile";
 import OrderNowBtn from "../OrderNowBtn";
 
 function getHeroH1FontSize(width: number) {
@@ -13,7 +12,6 @@ function getHeroH1FontSize(width: number) {
 }
 
 export default function Hero() {
-  const isMobile = useIsMobile();
   const [heroH1FontSize, setHeroH1FontSize] = useState(() =>
     getHeroH1FontSize(typeof window !== "undefined" ? window.innerWidth : 1280),
   );
@@ -27,9 +25,10 @@ export default function Hero() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
   return (
     <div
-      className="w-full max-w-full min-h-192 bg-cover bg-center bg-no-repeat text-white place-content-center px-4 lg:px-10 xl:place-content-end xl:px-20 xl:pb-10 2xl:px-32 2xl:pb-16"
+      className="w-full max-w-full min-h-screen bg-cover bg-center bg-no-repeat text-white place-content-center px-4 lg:px-10 xl:place-content-end xl:px-20 xl:pb-10 2xl:px-32 2xl:pb-16"
       style={{ backgroundImage: `url(${matchaBg})` }}
     >
       <div className="flex flex-col xl:grid xl:grid-cols-[1fr_auto_1fr] xl:items-center xl:gap-y-2">
@@ -54,13 +53,9 @@ export default function Hero() {
         </div>
       </div>
 
-      {isMobile ? (
-        <div className="m-10">
-          <OrderNowBtn />
-        </div>
-      ) : (
-        ""
-      )}
+      <div className="mt-10 flex justify-center xl:hidden">
+        <OrderNowBtn variant="hero" />
+      </div>
     </div>
   );
 }

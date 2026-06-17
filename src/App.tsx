@@ -10,7 +10,7 @@ export default function App() {
   return (
     <Router>
       <Navbar />
-      <main className="-mt-16">
+      <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/menu" element={<Menu />} />
