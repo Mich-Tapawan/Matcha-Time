@@ -1,11 +1,12 @@
+import { Link } from "react-router-dom";
 import SocialMediaIcons from "./SocialMediaIcons";
 
 export default function Footer() {
   return (
     <footer className="bg-primary text-white text-sm w-full min-h-100 px-4 py-12 lg:px-12 xl:px-20 2xl:px-32">
       <div className="grid place-content-center text-center gap-10 xl:grid-cols-4 xl:text-start">
-        <div className="space-y-8">
-          <p className="text-white font-bold" style={{ fontSize: "1.2rem" }}>
+        <div className="space-y-8 xl:space-y-15">
+          <p className="text-white font-bold" style={{ fontSize: "1.5rem" }}>
             Matcha Time
           </p>
           <SocialMediaIcons />
@@ -28,10 +29,18 @@ export default function Footer() {
 
         <ul className="space-y-2">
           <li className="font-medium">Pages</li>
-          <li className="font-extralight">Home</li>
-          <li className="font-extralight">Menu</li>
-          <li className="font-extralight">About</li>
-          <li className="font-extralight">Contact</li>
+          <li className="font-extralight">
+            <Link to={"/"}>Home</Link>
+          </li>
+          <li className="font-extralight">
+            <Link to={"/menu"}>Menu</Link>
+          </li>
+          <li className="font-extralight">
+            <Link to={"/about"}>About</Link>
+          </li>
+          <li className="font-extralight">
+            <Link to={"/contact"}>Contact</Link>
+          </li>
         </ul>
 
         <div className="flex flex-col space-y-3 items-center xl:items-start">
