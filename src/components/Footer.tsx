@@ -52,7 +52,7 @@ export default function Footer() {
           />
           <button
             type="submit"
-            className="bg-accent text-primary w-30 text-xs font-semibold py-3 px-4 rounded-full cursor-pointer"
+            className="bg-accent text-primary w-30 text-xs font-semibold py-3 px-4 rounded-full cursor-pointer hover:bg-[#d5db65]"
           >
             Subscribe
           </button>

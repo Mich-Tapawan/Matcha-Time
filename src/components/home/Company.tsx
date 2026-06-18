@@ -17,7 +17,7 @@ export default function Company() {
           </p>
           <button
             type="button"
-            className="w-fit bg-secondary text-primary px-10 py-4 cursor-pointer font-medium brand-font place-self-center hover:bg-primary hover:text-white hover:outline transition duration-300 xl:place-self-start"
+            className="w-fit bg-secondary text-primary px-10 py-4 cursor-pointer font-medium brand-font place-self-center hover:bg-transparent hover:text-white hover:outline transition duration-300 xl:place-self-start"
           >
             Learn More
           </button>

@@ -15,7 +15,7 @@ export default function OrderNowBtn({
   return (
     <button
       type="button"
-      className={`flex bg-accent place-content-center cursor-pointer hover:brightness-125 transition duration-300 ${variantStyles[variant]} ${className}`}
+      className={`flex bg-accent place-content-center cursor-pointer hover:bg-[#d5db65] transition duration-300 ${variantStyles[variant]} ${className}`}
     >
       <p className="text-center text-black font-medium brand-font">Order Now</p>
     </button>

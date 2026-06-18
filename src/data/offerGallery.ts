@@ -10,7 +10,12 @@ const imageModules = import.meta.glob(
 
 const imageURLs = Object.values(imageModules) as string[];
 
-const textCaptions = ["Hewwo", "wazzuppp", "Third Caption", "yeah"];
+const textCaptions = [
+  "Artfully curated flavors, whisked to perfection.",
+  "An intentional space designed to let you pause.",
+  "Exquisite artisanal desserts baked fresh daily.",
+  "Stone-ground ceremonial grade Uji matcha.",
+];
 
 export const offerGalleryImages: OfferImage[] = textCaptions.map(
   (caption, index) => ({
