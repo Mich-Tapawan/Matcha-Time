@@ -1,5 +1,8 @@
+import { Stagger, StaggerItem } from "../motion/Stagger";
+
 const MAGAZINE_TICKER =
   "WHISKED FRESH DAILY • CEREMONIAL GRADE UJI MATCHA • SLOW DOWN, IT'S MATCHA TIME • ARTISANAL DESSERTS • FIND YOUR CALM • ICED BLENDS & SPARKLERS • ";
+
 const headlineClass =
   "brand-font text-primary uppercase text-center leading-[0.92] tracking-tight text-[4rem] md:text-6xl lg:text-7xl xl:text-[7rem] 2xl:text-[8rem] [text-shadow:0_2px_12px_rgba(83,89,51,0.14)]";
 
@@ -26,38 +29,42 @@ function MagazineTicker() {
 export default function Magazine() {
   return (
     <section className="relative w-full overflow-hidden bg-secondary px-4 py-16 lg:px-10 xl:px-20 xl:py-24 2xl:px-32 2xl:py-32">
-      <div className="relative mx-auto flex w-full max-w-full min-h-100 flex-col items-center justify-center xl:min-h-120 2xl:min-h-140">
-        <div className={headlineClass}>Tea Ceremony</div>
+      <Stagger
+        className="relative mx-auto flex w-full max-w-full min-h-100 flex-col items-center justify-center xl:min-h-120 2xl:min-h-140"
+        stagger={0.08}
+        amount={0.25}
+      >
+        <StaggerItem className={headlineClass}>Tea Ceremony</StaggerItem>
 
-        <div className="relative flex w-full items-center justify-center py-1 md:py-2">
+        <StaggerItem className="relative flex w-full items-center justify-center py-1 md:py-2">
           <MagazineTicker />
           <div
             className={`${headlineClass} relative z-10 blur-[1.5px] md:blur-[2px]`}
           >
             Art Matches
           </div>
-        </div>
+        </StaggerItem>
 
-        <div className={headlineClass}>
+        <StaggerItem className={headlineClass}>
           <span className="md:hidden">
             Secrets of
             <br />
             Matcha
           </span>
           <span className="hidden md:inline">Secrets of Matcha</span>
-        </div>
+        </StaggerItem>
 
-        <div className={headlineClass}>Traditions</div>
+        <StaggerItem className={headlineClass}>Traditions</StaggerItem>
 
-        <div className={headlineClass}>
+        <StaggerItem className={headlineClass}>
           <span className="md:hidden">
             Journey to
             <br />
             Matcha
           </span>
           <span className="hidden md:inline">Journey to Matcha</span>
-        </div>
-      </div>
+        </StaggerItem>
+      </Stagger>
     </section>
   );
 }

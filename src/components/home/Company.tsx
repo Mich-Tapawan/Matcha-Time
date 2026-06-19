@@ -1,10 +1,11 @@
 import companyImg from "../../assets/offer/matcha-powder-spread.png";
+import Reveal from "../motion/Reveal";
 
 export default function Company() {
   return (
     <section className="w-full h-full flex justify-center items-center bg-linear-to-b from-[#6E7644] to-primary text-white px-4 py-10 lg:px-10 xl:h-150 xl:px-20 2xl:px-32 2xl:py-20">
       <div className="flex flex-col items-center gap-10 lg:flex-row lg:gap-12 xl:gap-16">
-        <div className="flex flex-col space-y-6 lg:flex-1 xl:space-y-10">
+        <Reveal className="flex flex-col space-y-6 lg:flex-1 xl:space-y-10" direction="left">
           <h2 className="text-white text-center xl:text-start">Our Company</h2>
           <p
             className="max-w-xl text-secondary text-center xl:text-start"
@@ -21,15 +22,15 @@ export default function Company() {
           >
             Learn More
           </button>
-        </div>
+        </Reveal>
 
-        <div className="w-full lg:flex-1 xl:max-w-115">
+        <Reveal className="w-full lg:flex-1 xl:max-w-115" direction="right" delay={0.1}>
           <img
             src={companyImg}
             alt="Ceremonial matcha powder with bamboo whisk"
             className="w-full rounded-2xl object-cover aspect-square"
           />
-        </div>
+        </Reveal>
       </div>
     </section>
   );

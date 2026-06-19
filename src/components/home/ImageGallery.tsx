@@ -1,26 +1,29 @@
 import { offerGalleryImages } from "../../data/offerGallery";
+import { Stagger, StaggerItem } from "../motion/Stagger";
 
 export default function ImageGallery() {
   return (
-    <div className="grid gap-3 grid-cols-2 xl:grid-cols-4 xl:gap-10">
+    <Stagger
+      className="grid grid-cols-2 gap-3 xl:grid-cols-4 xl:gap-10"
+      stagger={0.1}
+    >
       {offerGalleryImages.map(({ url, text }, index) => (
-        <div
-          key={index}
-          className="relative w-full rounded overflow-hidden group shadow-sm xl:min-h-140 2xl:max-w-90"
-        >
-          {/* Absolute Center Text Overlay */}
-          <div className="absolute inset-0 z-30 hidden items-center justify-center p-4 group-hover:flex">
-            <p className="text-center text-white font-medium text-lg">{text}</p>
-          </div>
+        <StaggerItem key={index} className="w-full">
+          <div className="group relative w-full overflow-hidden rounded-xl shadow-sm aspect-[4/5] xl:aspect-auto xl:h-140 2xl:h-150">
+            <div className="absolute inset-0 z-30 hidden items-center justify-center bg-black/20 p-4 group-hover:flex">
+              <p className="text-center text-lg font-medium text-white">
+                {text}
+              </p>
+            </div>
 
-          {/* Smooth Zoom Image */}
-          <img
-            src={url}
-            alt={`Gallery item ${index}`}
-            className="w-full h-full object-cover transition duration-300 group-hover:scale-[1.1] group-hover:brightness-50"
-          />
-        </div>
+            <img
+              src={url}
+              alt={text}
+              className="h-full w-full object-cover transition duration-300 group-hover:scale-105 group-hover:brightness-75"
+            />
+          </div>
+        </StaggerItem>
       ))}
-    </div>
+    </Stagger>
   );
 }

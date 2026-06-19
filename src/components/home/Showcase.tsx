@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { popularItems, recommendedItems } from "../../data/productItems";
+import Reveal from "../motion/Reveal";
 import ArrowButtons from "./ArrowButtons";
 import ProductList from "./ProductList";
 import { useIsMobile } from "../../hooks/useIsMobile";
@@ -21,8 +22,6 @@ export default function Showcase() {
 
   const visibleCount = isMobile ? 2 : 4;
 
-  // Arrow Button Toggling
-
   const handleNext = (
     currentIndex: number,
     setStartIndex: React.Dispatch<React.SetStateAction<number>>,
@@ -42,8 +41,7 @@ export default function Showcase() {
 
   return (
     <section className="px-4 py-10 space-y-10 lg:px-10 xl:px-20 2xl:px-32 2xl:py-20">
-      {/* Recommended Items */}
-      <div className="space-y-5">
+      <Reveal className="space-y-5">
         <div className="flex justify-between">
           <div className="flex items-center justify-center space-x-4">
             <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24">
@@ -70,16 +68,16 @@ export default function Showcase() {
           />
         </div>
         <ProductList
+          listKey={recommendedStartIndex}
           products={sliceFormula(
             recommendedItems,
             visibleCount,
             recommendedStartIndex,
           )}
         />
-      </div>
+      </Reveal>
 
-      {/* Popular Items */}
-      <div className="space-y-5">
+      <Reveal className="space-y-5" delay={0.1}>
         <div className="flex justify-between">
           <div className="flex items-center justify-center space-x-4">
             <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24">
@@ -104,9 +102,10 @@ export default function Showcase() {
           />
         </div>
         <ProductList
+          listKey={popularStartIndex}
           products={sliceFormula(popularItems, visibleCount, popularStartIndex)}
         />
-      </div>
+      </Reveal>
     </section>
   );
 }
