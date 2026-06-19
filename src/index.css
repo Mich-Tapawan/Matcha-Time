@@ -99,3 +99,16 @@ h3,
 .brand-font {
   font-family: "DM Serif Text", serif;
 }
+
+@keyframes magazine-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.magazine-marquee {
+  animation: magazine-marquee 45s linear infinite;
+}
