@@ -1,18 +1,37 @@
-export default function ArrowButtons() {
-  // Colors: #E5E1C1 #2F490C
+type ArrowButtonsProps = {
+  onPrev: () => void;
+  onNext: () => void;
+  isLeftDisabled: boolean;
+  isRightDisabled: boolean;
+};
 
+export default function ArrowButtons({
+  onPrev,
+  onNext,
+  isLeftDisabled,
+  isRightDisabled,
+}: ArrowButtonsProps) {
   return (
-    <div className="flex gap-1">
-      {/* Left Arrow */}
-      <button className="rounded-full w-full border cursor-pointer">
+    <div className="flex gap-2">
+      {/* Left Arrow Button */}
+      <button
+        onClick={onPrev}
+        disabled={isLeftDisabled}
+        className={`flex items-center justify-center w-8 h-8 rounded-full border transition duration-200
+          ${
+            isLeftDisabled
+              ? "bg-[#E5E1C1] text-neutral-400 border-transparent cursor-not-allowed opacity-60"
+              : "bg-[#2F490C] text-white border-[#2F490C] hover:bg-[#233709] cursor-pointer"
+          }`}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="1.5em"
-          height="1.5em"
+          width="1.2em"
+          height="1.2em"
           viewBox="0 0 24 24"
         >
           <path d="M0 0h24v24H0z" fill="none" />
-          <g fill="none" fill-rule="evenodd">
+          <g fill="none" fillRule="evenodd">
             <path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
             <path
               fill="currentColor"
@@ -22,16 +41,25 @@ export default function ArrowButtons() {
         </svg>
       </button>
 
-      {/* Right Arrow */}
-      <button className="rounded-full w-full border cursor-pointer">
+      {/* Right Arrow Button */}
+      <button
+        onClick={onNext}
+        disabled={isRightDisabled}
+        className={`flex items-center justify-center w-8 h-8 rounded-full border transition duration-200
+          ${
+            isRightDisabled
+              ? "bg-[#E5E1C1] text-neutral-400 border-transparent cursor-not-allowed opacity-60"
+              : "bg-[#2F490C] text-white border-[#2F490C] hover:bg-[#233709] cursor-pointer"
+          }`}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="1.5em"
-          height="1.5em"
+          width="1.2em"
+          height="1.2em"
           viewBox="0 0 24 24"
         >
           <path d="M0 0h24v24H0z" fill="none" />
-          <g fill="none" fill-rule="evenodd">
+          <g fill="none" fillRule="evenodd">
             <path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
             <path
               fill="currentColor"
