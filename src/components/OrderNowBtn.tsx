@@ -5,7 +5,7 @@ type OrderNowBtnProps = {
 
 const variantStyles = {
   nav: "h-10 text-sm py-2 px-6",
-  hero: "h-12 text-base py-3 px-10 w-full max-w-xs",
+  hero: "h-12 text-base py-3 px-10 w-full max-w-[15rem]",
 };
 
 export default function OrderNowBtn({
