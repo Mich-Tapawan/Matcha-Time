@@ -1,16 +1,34 @@
 import { Link } from "react-router-dom";
 import Burger from "./Burger";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import OrderNowBtn from "./OrderNowBtn";
 import { navLinks } from "../data/navigation";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 grid grid-cols-[1fr_1fr] items-center px-4 lg:px-10 xl:grid-cols-[1fr_auto_1fr] xl:px-20 2xl:px-32">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 grid grid-cols-[1fr_1fr] items-center px-4 transition-[background-color,box-shadow] duration-300 ease-in-out lg:px-10 xl:grid-cols-[1fr_auto_1fr] xl:px-20 2xl:px-32 ${
+        isScrolled
+          ? "bg-primary shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)]"
+          : "bg-transparent shadow-none"
+      }`}
+    >
       <div className="flex items-center py-2">
         <p className="font-bold text-white" style={{ fontSize: "1.2rem" }}>
           Matcha Time
