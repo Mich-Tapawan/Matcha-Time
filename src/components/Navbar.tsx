@@ -30,8 +30,9 @@ export default function Navbar() {
       }`}
     >
       <div className="flex items-center py-2">
+        <img src="/favicon.ico" alt="" />
         <p className="font-bold text-white" style={{ fontSize: "1.2rem" }}>
-          Matcha Time
+          atcha Time
         </p>
       </div>
 

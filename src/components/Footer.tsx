@@ -8,9 +8,12 @@ export default function Footer() {
     <footer className="bg-primary text-white text-sm w-full min-h-100 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] px-4 py-12 lg:px-12 xl:px-20 2xl:px-32">
       <div className="grid place-content-center text-center gap-10 xl:grid-cols-4 xl:text-start">
         <div className="space-y-8 xl:space-y-15">
-          <p className="text-white font-bold" style={{ fontSize: "1.5rem" }}>
-            Matcha Time
-          </p>
+          <div className="flex items-center justify-center py-2 xl:justify-start">
+            <img src="/favicon.ico" alt="" />
+            <p className="font-bold text-white" style={{ fontSize: "1.2rem" }}>
+              atcha Time
+            </p>
+          </div>
           <SocialMediaIcons />
         </div>
 
