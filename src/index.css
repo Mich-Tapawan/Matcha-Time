@@ -71,6 +71,32 @@ body {
   line-height: var(--line-height-body);
   background-color: var(--color-secondary);
   color: var(--color-primary);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) var(--color-secondary);
+}
+
+/* WebKit scrollbar — matcha theme */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 9999px;
+  border: 2px solid var(--color-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2f490c;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--color-secondary);
 }
 
 h1 {
