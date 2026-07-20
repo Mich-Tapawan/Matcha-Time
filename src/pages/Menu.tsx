@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { MenuCategoryId } from "../types/menu";
+import PageLoadGate from "../components/PageLoadGate";
 import MenuHero from "../components/menu/MenuHero";
 import CategoryTab from "../components/menu/CategoryTab";
 import ProductGrid from "../components/menu/ProductGrid";
@@ -8,7 +9,7 @@ export default function Menu() {
   const [activeCategory, setActiveCategory] = useState<MenuCategoryId>("all");
 
   return (
-    <div className="w-full bg-[#F7F6F0] text-[#2F490C]">
+    <PageLoadGate className="w-full bg-[#F7F6F0] text-[#2F490C]">
       <section className="space-y-10 px-4 py-16 lg:px-10 xl:px-20 2xl:px-32 2xl:py-24">
         <MenuHero />
         <CategoryTab
@@ -17,6 +18,6 @@ export default function Menu() {
         />
         <ProductGrid activeCategory={activeCategory} />
       </section>
-    </div>
+    </PageLoadGate>
   );
 }
