@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import matchaBg from "../../assets/matcha-bg.png";
-import DualText from "./DualText";
+import DualText from "../home/DualText";
 import OrderNowBtn from "../OrderNowBtn";
 import { fadeUp, staggerContainer } from "../motion/variants";
 

@@ -1,6 +1,26 @@
+import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "motion/react";
 import aboutMatchaVideo from "../../assets/about/about_matcha.mp4";
 import { fadeUp, staggerContainer } from "../motion/variants";
+
+function HeroActions() {
+  return (
+    <div className="flex w-full flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+      <Link
+        to="/menu"
+        className="inline-flex min-w-[10.5rem] items-center justify-center border border-white bg-transparent px-8 py-3 text-sm font-medium uppercase tracking-[0.18em] text-white transition duration-300 hover:bg-white hover:text-[#2F490C]"
+      >
+        View Menu
+      </Link>
+      <Link
+        to="/about"
+        className="inline-flex min-w-[10.5rem] items-center justify-center border border-white bg-white px-8 py-3 text-sm font-medium uppercase tracking-[0.18em] text-[#2F490C] transition duration-300 hover:bg-transparent hover:text-white"
+      >
+        Our Story
+      </Link>
+    </div>
+  );
+}
 
 export default function VideoFrame() {
   const reduceMotion = useReducedMotion();
@@ -28,6 +48,10 @@ export default function VideoFrame() {
         In a world that demands speed, we choose to whisk slowly, honoring the
         ancient dance between earth, water, and spirit.
       </motion.p>
+
+      <motion.div variants={fadeUp} className="w-full pt-2">
+        <HeroActions />
+      </motion.div>
     </div>
   );
 
@@ -46,7 +70,7 @@ export default function VideoFrame() {
         </video>
 
         <div
-          className="pointer-events-none absolute inset-0 bg-black/45"
+          className="pointer-events-none absolute inset-0 bg-black/70"
           aria-hidden
         />
       </div>
@@ -63,6 +87,9 @@ export default function VideoFrame() {
             In a world that demands speed, we choose to whisk slowly, honoring
             the ancient dance between earth, water, and spirit.
           </p>
+          <div className="w-full pt-2">
+            <HeroActions />
+          </div>
         </div>
       ) : (
         <motion.div
