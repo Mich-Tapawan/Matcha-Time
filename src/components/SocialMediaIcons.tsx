@@ -2,34 +2,66 @@ import InstagramIcon from "@iconify-react/mdi/instagram";
 import FacebookIcon from "@iconify-react/mdi/facebook";
 import TwitterIcon from "@iconify-react/mdi/twitter";
 import YoutubeIcon from "@iconify-react/mdi/youtube";
-import { Link } from "react-router-dom";
 
 type SocialIconType = {
-  component: React.ComponentType<any>;
+  component: React.ComponentType<{ className?: string }>;
   link: string;
+  label: string;
 };
 
-const SocialIcons: SocialIconType[] = [
-  { component: InstagramIcon, link: "https://www.instagram.com/" },
-  { component: FacebookIcon, link: "https://www.facebook.com/" },
-  { component: TwitterIcon, link: "https://www.twitter.com/" },
-  { component: YoutubeIcon, link: "https://www.youtube.com/" },
+const socialIcons: SocialIconType[] = [
+  {
+    component: InstagramIcon,
+    link: "https://www.instagram.com/",
+    label: "Instagram",
+  },
+  {
+    component: FacebookIcon,
+    link: "https://www.facebook.com/",
+    label: "Facebook",
+  },
+  {
+    component: TwitterIcon,
+    link: "https://www.twitter.com/",
+    label: "Twitter",
+  },
+  {
+    component: YoutubeIcon,
+    link: "https://www.youtube.com/",
+    label: "YouTube",
+  },
 ];
 
-export default function SocialMediaIcons() {
+type SocialMediaIconsProps = {
+  variant?: "default" | "footer";
+};
+
+export default function SocialMediaIcons({
+  variant = "default",
+}: SocialMediaIconsProps) {
+  const isFooter = variant === "footer";
+
   return (
-    <ul className="flex items-center gap-2">
-      {SocialIcons.map(({ component: IconComponent, link }, index) => (
-        <li key={index}>
-          <Link to={link}>
-            {
-              <IconComponent
-                height="3em"
-                style={{ color: "#fffdee" }}
-                className="cursor-pointer"
-              />
+    <ul className="flex items-center gap-3">
+      {socialIcons.map(({ component: IconComponent, link, label }) => (
+        <li key={label}>
+          <a
+            href={link}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={label}
+            className={
+              isFooter
+                ? "flex h-9 w-9 items-center justify-center rounded-full border border-white/25 text-white/80 transition duration-300 hover:border-white hover:text-white"
+                : "cursor-pointer"
             }
-          </Link>
+          >
+            <IconComponent
+              className={
+                isFooter ? "h-4 w-4" : "h-12 w-12 text-secondary"
+              }
+            />
+          </a>
         </li>
       ))}
     </ul>

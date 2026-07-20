@@ -1,75 +1,103 @@
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { footerHours, footerLegalLinks } from "../data/footer";
 import SocialMediaIcons from "./SocialMediaIcons";
-import { contactInfo } from "../data/contact";
-import { navLinks } from "../data/navigation";
+
+type NewsletterInputs = {
+  email: string;
+};
 
 export default function Footer() {
+  const { register, handleSubmit } = useForm<NewsletterInputs>();
+
+  const onSubmit = (data: NewsletterInputs) => {
+    console.log("Newsletter signup:", data);
+  };
+
   return (
-    <footer className="bg-primary text-white text-sm w-full min-h-100 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] px-4 py-12 lg:px-12 xl:px-20 2xl:px-32">
-      <div className="grid place-content-center text-center gap-10 xl:grid-cols-4 xl:text-start">
-        <div className="space-y-8 xl:space-y-15">
-          <div className="flex items-center justify-center py-2 xl:justify-start">
-            <img src="/favicon.ico" alt="" />
-            <p className="font-bold text-white" style={{ fontSize: "1.2rem" }}>
-              atcha Time
-            </p>
+    <footer className="w-full bg-[#364524] text-[#F2F1E6]">
+      <div className="mx-auto w-full px-4 py-14 lg:px-10 xl:px-20 2xl:px-32 2xl:py-20">
+        <div className="flex flex-col justify-between gap-10 lg:flex-row">
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <p style={{fontSize:'1.5rem'}} className="brand-font uppercase tracking-[0.12em]">
+                Matcha Time
+              </p>
+              <p className="max-w-md text-sm leading-relaxed text-white/60 md:text-base">
+                Crafting moments of shibui in the heart of the city since 2018.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/90">
+                Hours
+              </p>
+              <ul className="space-y-1 text-sm text-white/75 md:text-base">
+                {footerHours.map(({ label, time }) => (
+                  <li key={label}>
+                    {label}: {time}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <SocialMediaIcons variant="footer" />
           </div>
-          <SocialMediaIcons />
+
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <h2 className="brand-font text-2xl leading-tight md:text-3xl">
+                Tune in to our newsletter
+              </h2>
+              <p className="max-w-lg text-sm leading-relaxed text-white/60 md:text-base">
+                Join our circle for exclusive seasonal launches, brewing guides,
+                and a touch of zen in your inbox.
+              </p>
+            </div>
+
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="flex items-end gap-4 border-b border-white/30 pb-3"
+            >
+              <label className="sr-only" htmlFor="footer-email">
+                Email address
+              </label>
+              <input
+                id="footer-email"
+                type="email"
+                placeholder="Email Address"
+                {...register("email", { required: true })}
+                className="w-full bg-transparent text-sm text-white placeholder:text-white/45 outline-none md:text-base"
+              />
+              <button
+                type="submit"
+                className="shrink-0 cursor-pointer text-xs font-semibold uppercase tracking-[0.2em] text-accent transition duration-300 hover:text-[#f3f8a0] md:text-sm"
+              >
+                Subscribe
+              </button>
+            </form>
+
+            <ul className="flex flex-wrap gap-x-6 gap-y-3">
+              {footerLegalLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    to={link.href}
+                    className="text-[0.65rem] font-medium uppercase tracking-[0.18em] text-white/70 transition duration-300 hover:text-white md:text-xs"
+                  >
+                    {link.text}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
-        <div className="flex flex-col gap-10">
-          <ul className="space-y-2">
-            <li className="font-medium">Get in touch</li>
-            <li className="font-extralight">{contactInfo.email}</li>
-            {contactInfo.phones.map((phone) => (
-              <li key={phone} className="font-extralight">
-                {phone}
-              </li>
-            ))}
-          </ul>
-
-          <ul className="space-y-2">
-            <li className="font-medium">Company</li>
-            <li className="font-extralight">Terms & Conditions</li>
-            <li className="font-extralight">Privacy Policy</li>
-          </ul>
+        <div className="mt-12 border-t border-white/15 pt-6">
+          <div className="flex flex-col gap-3 text-[0.65rem] uppercase tracking-[0.16em] text-white/55 md:flex-row md:items-center md:justify-between md:text-xs">
+            <p style={{fontSize:"0.75rem"}}>© 2026 Matcha Time. Crafted for slow living.</p>
+            <p style={{fontSize:"0.75rem"}}>Made with intention.</p>
+          </div>
         </div>
-
-        <ul className="space-y-2">
-          <li className="font-medium">Pages</li>
-          {navLinks.map((link) => (
-            <li key={link.href} className="font-extralight">
-              <Link to={link.href}>{link.text}</Link>
-            </li>
-          ))}
-        </ul>
-
-        <div className="flex flex-col space-y-3 items-center xl:items-start">
-          <h4 className="font-semibold text-2xl">
-            Tune in to our <br /> NEWSLETTER
-          </h4>
-          <input
-            type="email"
-            className="bg-white text-primary text-xs py-3 px-4 rounded-full w-full"
-            placeholder="Email"
-          />
-          <button
-            type="submit"
-            className="bg-accent text-primary w-30 text-xs font-semibold py-3 px-4 rounded-full cursor-pointer hover:bg-[#d5db65]"
-          >
-            Subscribe
-          </button>
-        </div>
-      </div>
-
-      <div className="mt-10">
-        <span className="block h-0.5 w-full bg-white mb-6"></span>
-        <p
-          style={{ fontSize: "0.8rem" }}
-          className=" text-center text-[#acb9ab]"
-        >
-          @ 2026 Matcha Time. All rights reserved
-        </p>
       </div>
     </footer>
   );

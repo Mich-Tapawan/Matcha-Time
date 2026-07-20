@@ -81,33 +81,28 @@ const meaningIcons: Record<
 export default function MeaningContainer() {
   return (
     <section className="w-full bg-[#F2F1E6] px-4 py-10 text-[#2F490C] lg:px-10 xl:px-20 2xl:px-32 2xl:py-20">
-      <Stagger className="mx-auto flex w-full max-w-6xl flex-col lg:grid lg:grid-cols-3 lg:gap-6 xl:gap-8">
+      <Stagger className="mx-auto grid w-full max-w-6xl grid-cols-1 lg:grid-cols-3 lg:gap-6 xl:gap-8">
         {aboutMeanings.map((item) => {
           const Icon = meaningIcons[item.id];
 
           return (
             <StaggerItem key={item.id} className="w-full">
-              <article className="flex flex-col items-center space-y-5 py-10 text-center lg:hidden">
-                <Icon className="h-10 w-10" />
-                <h3 className="brand-font text-3xl leading-tight">{item.title}</h3>
-                <p className="max-w-sm text-sm leading-relaxed text-[#2F490C]/80">
-                  {item.description}
-                </p>
-                <div className="w-full border-b border-[#2F490C]/40 pt-5" aria-hidden />
-              </article>
-
               <article
-                className={`hidden aspect-square flex-col items-center justify-center space-y-5 border border-[#2F490C]/35 px-6 text-center lg:flex xl:px-8 ${
-                  item.highlighted ? "bg-[#E5E1C1]/60" : "bg-transparent"
+                className={`flex flex-col items-center space-y-5 py-10 text-center lg:aspect-square lg:justify-center lg:border lg:border-[#2F490C]/35 lg:px-6 lg:py-0 xl:px-8 ${
+                  item.highlighted ? "lg:bg-[#E5E1C1]/60" : "lg:bg-transparent"
                 }`}
               >
                 <Icon className="h-10 w-10 xl:h-12 xl:w-12" />
                 <h3 className="brand-font text-3xl leading-tight xl:text-4xl">
                   {item.title}
                 </h3>
-                <p className="max-w-xs text-sm leading-relaxed text-[#2F490C]/80 xl:text-base">
+                <p className="max-w-sm text-sm leading-relaxed text-[#2F490C]/80 lg:max-w-xs xl:text-base">
                   {item.description}
                 </p>
+                <div
+                  className="w-full border-b border-[#2F490C]/40 pt-5 lg:hidden"
+                  aria-hidden
+                />
               </article>
             </StaggerItem>
           );

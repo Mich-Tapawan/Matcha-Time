@@ -15,6 +15,9 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
+    /* Cross-platform safety */
+    "forceConsistentCasingInFileNames": true,
+
     /* Linting */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
