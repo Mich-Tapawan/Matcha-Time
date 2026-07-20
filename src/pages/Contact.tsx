@@ -1,11 +1,14 @@
 import PageLoadGate from "../components/PageLoadGate";
+import PageMeta from "../components/PageMeta";
 import ContactForm from "../components/contact/ContactForm";
 import contactBg from "../assets/contact-bg.jpg";
 import { contactInfo } from "../data/contact";
+import { pageSeo } from "../data/seo";
 
 export default function Contact() {
   return (
     <PageLoadGate extraAssets={[contactBg]}>
+      <PageMeta seo={pageSeo.contact} />
       <div
         className="grid w-full min-h-screen place-content-center justify-center gap-12 bg-cover bg-center bg-no-repeat px-4 pt-16 align-middle lg:gap-10 lg:px-12 xl:grid-cols-2 xl:px-20 2xl:gap-16 2xl:px-32"
         style={{ backgroundImage: `url(${contactBg})` }}
