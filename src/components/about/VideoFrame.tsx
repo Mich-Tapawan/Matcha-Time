@@ -1,11 +1,9 @@
-import { useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
-import matchaCafe from "../../assets/offer/matcha-cafe.jpg";
+import aboutMatchaVideo from "../../assets/about/about_matcha.mp4";
 import { fadeUp, staggerContainer } from "../motion/variants";
 
 export default function VideoFrame() {
   const reduceMotion = useReducedMotion();
-  const [isMediaLoaded, setIsMediaLoaded] = useState(false);
 
   const content = (
     <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center space-y-5 text-center xl:max-w-4xl xl:space-y-8">
@@ -35,32 +33,23 @@ export default function VideoFrame() {
 
   return (
     <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden px-4 py-10 text-white lg:px-10 xl:px-20 2xl:px-32 2xl:py-20">
-      <div className="absolute inset-0 bg-[#E5E1C1]/20">
+      <div className="absolute inset-0 overflow-hidden bg-[#2F490C]">
         <video
-          poster={matchaCafe}
           autoPlay
           muted
           loop
           playsInline
-          onLoadedData={() => setIsMediaLoaded(true)}
-          className={`h-full w-full object-cover transition-opacity duration-700 ${
-            isMediaLoaded ? "opacity-100" : "opacity-0"
-          }`}
+          preload="auto"
+          className="absolute inset-0 h-full w-full object-cover"
         >
-          <source src="/videos/matcha-about.mp4" type="video/mp4" />
+          <source src={aboutMatchaVideo} type="video/mp4" />
         </video>
 
-        <img
-          src={matchaCafe}
-          alt=""
+        <div
+          className="pointer-events-none absolute inset-0 bg-black/45"
           aria-hidden
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
-            isMediaLoaded ? "opacity-0" : "opacity-100"
-          }`}
         />
       </div>
-
-      <div className="absolute inset-0 bg-black/45" aria-hidden />
 
       {reduceMotion ? (
         <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center space-y-5 text-center xl:max-w-4xl xl:space-y-8">
