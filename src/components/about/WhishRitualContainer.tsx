@@ -51,10 +51,10 @@ export default function WhiskRitualContainer() {
           </div>
 
           <div
-            className="flex w-full items-center gap-3 md:gap-5"
+            className="flex w-full min-w-0 items-center gap-2 md:gap-5"
             aria-label="Ceremony parts"
           >
-            <span className="shrink-0 text-[0.65rem] font-medium uppercase tracking-[0.18em] md:text-xs">
+            <span className="min-w-0 shrink text-[0.6rem] font-medium uppercase tracking-[0.12em] md:shrink-0 md:text-xs md:tracking-[0.18em]">
               Part I: The Sifting
             </span>
 
@@ -65,7 +65,7 @@ export default function WhiskRitualContainer() {
               />
             </div>
 
-            <span className="shrink-0 text-[0.65rem] font-medium uppercase tracking-[0.18em] md:text-xs">
+            <span className="min-w-0 shrink text-right text-[0.6rem] font-medium uppercase tracking-[0.12em] md:shrink-0 md:text-left md:text-xs md:tracking-[0.18em]">
               Part II: The Whisking
             </span>
           </div>

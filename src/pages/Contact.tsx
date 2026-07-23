@@ -10,7 +10,7 @@ export default function Contact() {
     <PageLoadGate extraAssets={[contactBg]}>
       <PageMeta seo={pageSeo.contact} />
       <div
-        className="grid w-full min-h-screen place-content-center justify-center gap-12 bg-cover bg-center bg-no-repeat px-4 pt-16 align-middle lg:gap-10 lg:px-12 xl:grid-cols-2 xl:px-20 2xl:gap-16 2xl:px-32"
+        className="grid w-full min-h-screen place-content-center justify-center gap-12 bg-cover bg-center bg-no-repeat px-4 pt-16 pb-16 align-middle lg:gap-10 lg:px-12 xl:grid-cols-2 xl:px-20 2xl:gap-16 2xl:px-32 2xl:pb-20"
         style={{ backgroundImage: `url(${contactBg})` }}
       >
         <div style={{ color: "white" }} className="max-w-163 space-y-5">

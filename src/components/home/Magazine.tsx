@@ -11,7 +11,7 @@ function MagazineTicker() {
 
   return (
     <div
-      className="pointer-events-none absolute left-1/2 top-1/2 z-0 w-screen -translate-x-1/2 -translate-y-1/2 overflow-hidden"
+      className="pointer-events-none absolute inset-x-0 top-1/2 z-0 w-full -translate-y-1/2 overflow-hidden"
       aria-hidden
     >
       <div className="magazine-marquee flex w-max whitespace-nowrap">
